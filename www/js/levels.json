@@ -1,0 +1,44 @@
+{
+    "levels": [{
+        "aceInhibitors": [{
+            "name": "lisinopril",
+            "level": "1",
+            "image": "a",
+            "dose": "1 tab",
+            "route": "PO",
+            "sig": "daily",
+            "pillCount": "#90",
+            "refills": "Refill 3"
+        }],
+        "antianginal": [{
+            "name": "nitroglycerin",
+            "level": "2",
+            "image": "b",
+            "dose": "1 tab",
+            "route": "SL",
+            "sig": "q15min PRN",
+            "pillCount": "#30",
+            "refills": "Refill 1"
+        }],
+        "anticoagulants": [{
+            "name": "warfarin sodium",
+            "level": "3",
+            "image": "c",
+            "dose": "1 tab",
+            "route": "PO",
+            "sig": "daily",
+            "pillCount": "#90",
+            "refills": "Refill 3"
+        }],
+        "betaBlocker": [{
+            "name": "metoprolol tartrate",
+            "level": "4",
+            "image": "d",
+            "dose": "1 tab",
+            "route": "PO",
+            "sig": "daily",
+            "pillCount": "#90",
+            "refills": "Refill 3"
+        }]
+    }]
+}

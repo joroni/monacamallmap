@@ -1,0 +1,24 @@
+{
+    "levels": [{
+        "aceInhibitors": [{
+            "name": "LG",
+            "level": "1",
+            "image": "1"
+        }],
+        "antianginal": [{
+            "name": "UG",
+            "level": "2",
+            "image": "2"
+        }],
+        "anticoagulants": [{
+            "name": "Level 3",
+            "level": "3",
+            "image": "3"
+        }],
+        "betaBlocker": [{
+            "name": "Level 4",
+            "level": "4",
+            "image": "4"
+        }]
+    }]
+}
