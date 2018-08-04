@@ -473,7 +473,7 @@
             classie.remove(activeSpaceArea, 'map__space--selected');
         }
         // svg area gets selected
-        classie.add(mallLevels[selectedLevel - 1].querySelector('svg > .map__space[data-space="' + spaceref + '"]'), 'map__space--selected');
+        //        classie.add(mallLevels[selectedLevel - 1].querySelector('svg > .map__space[data-space="' + spaceref + '"]'), 'map__space--selected');
     }
 
     /**
