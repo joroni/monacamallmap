@@ -3,7 +3,8 @@
         "aceInhibitors": [{
             "name": "LG",
             "level": "1",
-            "image": "a"
+            "image": "a",
+            "aria-label": "The Test"
         }],
         "antianginal": [{
             "name": "UG",
