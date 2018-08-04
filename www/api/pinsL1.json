@@ -9,17 +9,20 @@
         "antianginal": [{
             "name": "UG",
             "level": "2",
-            "image": "b"
+            "image": "b",
+            "aria-label": "The Test2"
         }],
         "anticoagulants": [{
             "name": "Level 3",
             "level": "3",
-            "image": "c"
+            "image": "c",
+            "aria-label": "The Test3"
         }],
         "betaBlocker": [{
             "name": "Level 4",
             "level": "4",
-            "image": "d"
+            "image": "d",
+            "aria-label": "The Test4"
         }]
     }]
 }
