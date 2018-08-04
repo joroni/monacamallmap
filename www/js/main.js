@@ -37,11 +37,11 @@
             }
         },
         // the mall element
-        zoomin = document.querySelector('.zoomin'),
-        zoomout = document.querySelector('.zoomout'),
+        zoomin = document.querySelector('.zoomIn'),
+        zoomout = document.querySelector('.zoomOut'),
 
 
-        zoomer = document.querySelector('.zoom'),
+        zoomer = document.querySelector('.zoomer'),
         homemall = document.querySelector('.homemall'),
         // the mall element
         mall = document.querySelector('.mall'),
@@ -102,12 +102,29 @@
     }
 
 
+    // click on the show mall´s levels ctrl
+    zoomin.addEventListener('click', function() {
+        // var zoomer = +.5;
+        // shows all levels
+        zoomer.style.zoom = 1 + zoomer;
+        //   zoomIn();
+
+    });
+
+
+    // click on the show mall´s levels ctrl
+    zoomout.addEventListener('click', function() {
+        // shows all levels
+        zoomer.style.zoom = 1;
+        //   zoomOut();
+
+    });
 
     function zoomIn()
 
     {
 
-        var Page = document.getElementById('Body');
+        var Page = document.getElementById('Level');
 
         var zoom = parseInt(Page.style.zoom) + 10 + '%'
 
@@ -121,7 +138,7 @@
 
     {
 
-        var Page = document.getElementById('Body');
+        var Page = document.getElementById('Level');
 
         var zoom = parseInt(Page.style.zoom) - 10 + '%'
 
@@ -146,23 +163,7 @@
 
 
 
-        // click on the show mall´s levels ctrl
-        zoomin.addEventListener('click', function() {
-            // var zoomer = +.5;
-            // shows all levels
-            //zoomer.style.zoom = 1 + zoomer;
-            zoomIn();
 
-        });
-
-
-        // click on the show mall´s levels ctrl
-        zoomout.addEventListener('click', function() {
-            // shows all levels
-            //  zoomer.style.zoom = 1;
-            zoomOut();
-
-        });
 
 
 

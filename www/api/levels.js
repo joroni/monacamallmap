@@ -23,9 +23,9 @@ $(document).ready(function() {
 
         $('<div>', {
             "class": 'levels',
-            "ID": "Levelsss",
+            "ID": "Levels",
             html: items.join('')
-        }).appendTo("#Mall");
+        }).appendTo("#Malls");
 
     });
 });

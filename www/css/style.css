@@ -521,13 +521,13 @@ button:focus {
     transform: rotateZ(-20deg) rotateZ(45deg) rotateX(-70deg) translateZ(5vmin) translateX(5vmin) translateY(-10vmin);
 }
 
-.zoom {
+.zoomer {
     zoom: 1;
     transition: transform .8s;
     /* Animation */
 }
 
-.zoom:hover {
+.zoomer:hover {
     zoom: 1.2;
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
