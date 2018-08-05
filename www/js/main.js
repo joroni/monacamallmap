@@ -1,11 +1,11 @@
 ;
-(function(window) {
+(function (window) {
 
     'use strict';
 
     // helper functions
     // from https://davidwalsh.name/vendor-prefix
-    var prefix = (function() {
+    var prefix = (function () {
         var styles = window.getComputedStyle(document.documentElement, ''),
             pre = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
             dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
@@ -19,16 +19,26 @@
     })();
 
     // vars & stuff
-    var support = { transitions: Modernizr.csstransitions },
-        transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+    var support = {
+            transitions: Modernizr.csstransitions
+        },
+        transEndEventNames = {
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'msTransition': 'MSTransitionEnd',
+            'transition': 'transitionend'
+        },
         transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
-        onEndTransition = function(el, callback, propTest) {
-            var onEndCallbackFn = function(ev) {
+        onEndTransition = function (el, callback, propTest) {
+            var onEndCallbackFn = function (ev) {
                 if (support.transitions) {
                     if (ev.target != this || propTest && ev.propertyName !== propTest && ev.propertyName !== prefix.css + propTest) return;
                     this.removeEventListener(transEndEventName, onEndCallbackFn);
                 }
-                if (callback && typeof callback === 'function') { callback.call(this); }
+                if (callback && typeof callback === 'function') {
+                    callback.call(this);
+                }
             };
             if (support.transitions) {
                 el.addEventListener(transEndEventName, onEndCallbackFn);
@@ -86,7 +96,13 @@
         // sort by ctrls
         sortByNameCtrl = document.querySelector('#sort-by-name'),
         // listjs initiliazation (all mall´s spaces)
-        spacesList = new List('spaces-list', { valueNames: ['list__link', { data: ['level'] }, { data: ['category'] }] }),
+        spacesList = new List('spaces-list', {
+            valueNames: ['list__link', {
+                data: ['level']
+            }, {
+                data: ['category']
+            }]
+        }),
 
         // smaller screens:
         // open search ctrl
@@ -102,58 +118,12 @@
     }
 
 
-    // click on the show mall´s levels ctrl
-    zoomin.addEventListener('click', function() {
-        // var zoomer = +.5;
-        // shows all levels
-        zoomer.style.zoom = 1 + zoomer;
-        //   zoomIn();
-
-    });
-
-
-    // click on the show mall´s levels ctrl
-    zoomout.addEventListener('click', function() {
-        // shows all levels
-        zoomer.style.zoom = 1;
-        //   zoomOut();
-
-    });
-
-    function zoomIn()
-
-    {
-
-        var Page = document.getElementById('Level');
-
-        var zoom = parseInt(Page.style.zoom) + 10 + '%'
-
-        Page.style.zoom = zoom;
-
-        return false;
-
-    }
-
-    function zoomOut()
-
-    {
-
-        var Page = document.getElementById('Level');
-
-        var zoom = parseInt(Page.style.zoom) - 10 + '%'
-
-        Page.style.zoom = zoom;
-
-        return false;
-
-    }
-    /**
-     * Initialize/Bind events fn.
+     /* Initialize/Bind events fn.
      */
     function initEvents() {
         // click on a Mall´s level
-        mallLevels.forEach(function(level, pos) {
-            level.addEventListener('click', function() {
+        mallLevels.forEach(function (level, pos) {
+            level.addEventListener('click', function () {
                 // shows this level
                 showLevel(pos + 1);
             });
@@ -171,17 +141,21 @@
 
 
         // click on the show mall´s levels ctrl
-        allLevelsCtrl.addEventListener('click', function() {
+        allLevelsCtrl.addEventListener('click', function () {
             // shows all levels
             showAllLevels();
         });
 
         // navigating through the levels
-        levelUpCtrl.addEventListener('click', function() { navigate('Down'); });
-        levelDownCtrl.addEventListener('click', function() { navigate('Up'); });
+        levelUpCtrl.addEventListener('click', function () {
+            navigate('Down');
+        });
+        levelDownCtrl.addEventListener('click', function () {
+            navigate('Up');
+        });
 
         // sort by name ctrl - add/remove category name (css pseudo element) from list and sorts the spaces by name 
-        sortByNameCtrl.addEventListener('click', function() {
+        sortByNameCtrl.addEventListener('click', function () {
             if (this.checked) {
                 classie.remove(spacesEl, 'grouped-by-category');
                 spacesList.sort('list__link');
@@ -192,20 +166,20 @@
         });
 
         // hovering a pin / clicking a pin
-        pins.forEach(function(pin) {
+        pins.forEach(function (pin) {
             var contentItem = contentEl.querySelector('.content__item[data-space="' + pin.getAttribute('data-space') + '"]');
 
-            pin.addEventListener('mouseenter', function() {
+            pin.addEventListener('mouseenter', function () {
                 if (!isOpenContentArea) {
                     classie.add(contentItem, 'content__item--hover');
                 }
             });
-            pin.addEventListener('mouseleave', function() {
+            pin.addEventListener('mouseleave', function () {
                 if (!isOpenContentArea) {
                     classie.remove(contentItem, 'content__item--hover');
                 }
             });
-            pin.addEventListener('click', function(ev) {
+            pin.addEventListener('click', function (ev) {
                 ev.preventDefault();
                 // open content for this pin
                 openContent(pin.getAttribute('data-space'));
@@ -215,17 +189,17 @@
         });
 
         // closing the content area
-        contentCloseCtrl.addEventListener('click', function() {
+        contentCloseCtrl.addEventListener('click', function () {
             closeContentArea();
         });
 
         // clicking on a listed space: open level - shows space
-        spaces.forEach(function(space) {
+        spaces.forEach(function (space) {
             var spaceItem = space.parentNode,
                 level = spaceItem.getAttribute('data-level'),
                 spacerefval = spaceItem.getAttribute('data-space');
 
-            space.addEventListener('click', function(ev) {
+            space.addEventListener('click', function (ev) {
                 ev.preventDefault();
                 // for smaller screens: close search bar
                 closeSearch();
@@ -237,12 +211,12 @@
         });
 
         // smaller screens: open the search bar
-        openSearchCtrl.addEventListener('click', function() {
+        openSearchCtrl.addEventListener('click', function () {
             openSearch();
         });
 
         // smaller screens: close the search bar
-        closeSearchCtrl.addEventListener('click', function() {
+        closeSearchCtrl.addEventListener('click', function () {
             closeSearch();
         });
     }
@@ -267,7 +241,7 @@
         var levelEl = mallLevels[selectedLevel - 1];
         classie.add(levelEl, 'level--current');
 
-        onEndTransition(levelEl, function() {
+        onEndTransition(levelEl, function () {
             classie.add(mallLevelsEl, 'levels--open');
 
             // show level pins
@@ -321,7 +295,7 @@
      * Shows all spaces for current level
      */
     function showLevelSpaces() {
-        spacesList.filter(function(item) {
+        spacesList.filter(function (item) {
             return item.values().level === selectedLevel.toString();
         });
     }
@@ -360,7 +334,7 @@
      * Show the surroundings level
      */
     function showSurroundings() {
-        mallSurroundings.forEach(function(el) {
+        mallSurroundings.forEach(function (el) {
             classie.remove(el, 'surroundings--hidden');
         });
     }
@@ -369,7 +343,7 @@
      * Hide the surroundings level
      */
     function hideSurroundings() {
-        mallSurroundings.forEach(function(el) {
+        mallSurroundings.forEach(function (el) {
             classie.add(el, 'surroundings--hidden');
         });
     }
@@ -403,14 +377,16 @@
         classie.add(currentLevel, 'level--moveOut' + direction);
         // next level element
         var nextLevel = mallLevels[selectedLevel - 1]
-            // ..becomes the current one
+        // ..becomes the current one
         classie.add(nextLevel, 'level--current');
 
         // when the transition ends..
-        onEndTransition(currentLevel, function() {
+        onEndTransition(currentLevel, function () {
             classie.remove(currentLevel, 'level--moveOut' + direction);
             // solves rendering bug for the SVG opacity-fill property
-            setTimeout(function() { classie.remove(currentLevel, 'level--current'); }, 60);
+            setTimeout(function () {
+                classie.remove(currentLevel, 'level--current');
+            }, 60);
 
             classie.remove(mallLevelsEl, 'levels--selected-' + prevSelectedLevel);
             classie.add(mallLevelsEl, 'levels--selected-' + selectedLevel);
@@ -501,7 +477,7 @@
         // show content
         classie.add(contentItem, 'content__item--current');
         if (sliding) {
-            onEndTransition(contentItem, function() {
+            onEndTransition(contentItem, function () {
                 classie.add(contentEl, 'content--open');
             });
         }

@@ -556,14 +556,7 @@
                         <g id="Raster" display="none">
                         </g>
                         <g id="Raster_copy" display="none">
-                            <g display="inline">
-                                
-                                    <image overflow="visible" width="1108" height="355" xlink:href="../../Interactive3DMallMap2/map2/assets/megamall/AB-5F.jpg"  transform="matrix(0.7621 0 0 0.7621 1.2754 -15.2464)">
-                                </image>
-                                
-                                    <image overflow="visible" width="693" height="420" xlink:href="../../Interactive3DMallMap2/map2/assets/megamall/D-5F.jpg"  transform="matrix(0.4518 0 0 0.4518 528.7097 251.9043)">
-                                </image>
-                            </g>
+                            
                         </g>
                         <g id="outline" display="none">
                             
@@ -758,11 +751,7 @@
                             <rect x="14.3" y="213" display="inline" opacity="0.8" fill="#0C6885" width="132.5" height="33.7"/>
                             <rect x="160.8" y="213" display="inline" opacity="0.8" fill="#0C6885" width="31" height="33.7"/>
                         </g>
-                        <g id="Layer_11" display="none">
-                            
-                                <image display="inline" overflow="visible" width="464" height="463" xlink:href="5983C197.jpg"  transform="matrix(1 0 0 1 -508 -183.6667)">
-                            </image>
-                        </g>
+                        
                         <g id="Layer_2_copy_9" display="none">
                             <polygon display="inline" opacity="0.8" fill="#CDCCCC" points="8.3,9.3 8.3,246.7 529,246.7 839.8,246.7 841.8,246.7 841.8,9.3 	
                                 "/>
@@ -1330,11 +1319,10 @@
             </nav>
 
             <nav class="mallcontrol mallnavs--hidden">
-                <button id="reset">Reset</button>
-                <button id="corner">To the Corner...</button>
-            <button class="boxbutton mallnav__button zoomin" aria-label="Zoom up"> <i class="material-icons">zoom_in</i></button>
-
-                <button class="boxbutton mallnav__button zoomout" aria-label="Zoom out"> <i class="material-icons">zoom_out</i></button>
+                <input type="button" value ="+" class="boxbutton mallnav__button zoomin"/>
+                <button class="boxbutton mallnav__button zoomreset"><i class="material-icons">replay</i></button>
+                <input type="button" value ="-" class="boxbutton mallnav__button zoomout"/>
+         
             </nav>
             <div class="content">
                 <div class="content__item" data-space="1.01" data-category="1">
@@ -1704,18 +1692,38 @@
     </div>
     <!-- /container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+     var currentZoom = 1.0;
+
+$(document).ready(function () {
+    $('.zoomin').click(
+        function () {
+            $('#Levels').animate({  'max_zoom': 2,'zoom': currentZoom += .10 }, 'fast');
+            return false;
+        })
+    $('.zoomout').click(
+        function () {
+            $('#Levels').animate({'zoom': currentZoom -= .10 }, 'fast');
+            return false;
+        })
+    $('.zoomreset').click(
+        function () {
+            currentZoom = 1.0
+            $('#Levels').animate({ 'min_zoom': 1, 'zoom': 1 }, 'fast');
+            return false;
+        })
+});
+    
+    </script>
     <script src="js/classie.js"></script>
     <script src="js/list.min.js"></script>
     <script src="js/main.js"></script>
-<<<<<<< HEAD
-    <script src="js/panzoom.js"></script>
-    <script src="api/levels.js"></script>
+    
+    
    
-    <script src="api/pins.js"></script>
-=======
+
 
     <script src="api/pinsL1.js"></script>
->>>>>>> fc22a623f93c4e2afa3e72f04dec2cae06755e8b
 
 </body>
 
