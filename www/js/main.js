@@ -37,8 +37,8 @@
             }
         },
         // the mall element
-        zoomin = document.querySelector('.zoomIn'),
-        zoomout = document.querySelector('.zoomOut'),
+        zoomin = document.querySelector('.zoomin'),
+        zoomout = document.querySelector('.zoomout'),
 
 
         zoomer = document.querySelector('.zoomer'),

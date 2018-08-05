@@ -361,7 +361,8 @@ button:focus {
 .levels--selected-1 .level:not(.level--1),
 .levels--selected-2 .level:not(.level--2),
 .levels--selected-3 .level:not(.level--3),
-.levels--selected-4 .level:not(.level--4) {
+.levels--selected-4 .level:not(.level--4),
+.levels--selected-5 .level:not(.level--5)  {
     opacity: 0;
     /* fade out all others */
 }
@@ -379,7 +380,9 @@ button:focus {
 .levels--selected-4 .level--1,
 .levels--selected-3 .level--2,
 .levels--selected-4 .level--2,
-.levels--selected-4 .level--3 {
+.levels--selected-4 .level--3,
+.levels--selected-5 .level--3,
+.levels--selected-5 .level--4  {
     -webkit-transform: translateZ(-60vmin);
     transform: translateZ(-60vmin);
 }
@@ -393,7 +396,8 @@ button:focus {
 .levels--selected-1 .level--3,
 .levels--selected-2 .level--3,
 .levels--selected-3 .level--2,
-.levels--selected-4 .level--2 {
+.levels--selected-4 .level--2
+.levels--selected-5 .level--1  {
     -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
@@ -403,15 +407,17 @@ button:focus {
 .levels--selected-2 .level--current::after,
 .levels--selected-3 .level--current,
 .levels--selected-3 .level--current::after,
-.levels--selected-4 .level--3 {
+.levels--selected-4 .level--current,
+.levels--selected-4 .level--current::after,
+.levels--selected-5 .level--4 {
     -webkit-transition-delay: 0.25s;
     transition-delay: 0.25s;
 }
 
-.levels--selected-1 .level--current,
-.levels--selected-1 .level--current::after,
-.levels--selected-4 .level--current,
-.levels--selected-4 .level--current::after {
+.levels--selected-2 .level--current,
+.levels--selected-2 .level--current::after,
+.levels--selected-5 .level--current,
+.levels--selected-5 .level--current::after {
     -webkit-transition-delay: 0.45s;
     transition-delay: 0.45s;
 }
@@ -1280,4 +1286,20 @@ screen and (max-height: 40.625em) {
         top: 20%;
         z-index: 200000;
     }
+}
+
+
+.drawing {
+	width:100%;
+	height:100%;
+}
+.drawing {
+	position:absolute;
+	top:175px;left:0;
+}
+.svg-container {
+	display: block;
+	background-color: #BADA55;
+	width:100%;
+	height:100%;	
 }
