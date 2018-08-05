@@ -1,12 +1,12 @@
 $(document).ready(function() {
     var items = [];
 
-    $.getJSON('api/pinsL1.json', function(json) {
+    $.getJSON('api/pinsL5.json', function(json) {
         $.each(json.pins, function(index, orders) {
             $.each(this, function() {
                 $.each(this, function() {
                     items.push(
-                        '<a class="pin pin--'+this.level+'-1" data-category="1" data-space="1.01" href="#" aria-label='+ this.label+'>' +
+                        '<a class="pin pin--'+ this.level+'-1" data-category="1" data-space="1.01" href="#" aria-label= "'+ this.label +'">' +
                         '<span class="pin__icon">' +
                         '<svg class="icon icon--pin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pin"></use></svg>' +
                         '<svg class="icon icon--logo icon--appleheart"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-appleheart"></use></svg>' +
@@ -19,7 +19,7 @@ $(document).ready(function() {
         $('<div>', {
             "class": 'levelsPins',
             html: items.join('')
-        }).appendTo("#Level_1__Pins");
+        }).appendTo("#Level_5__Pins");
 
     });
 });
