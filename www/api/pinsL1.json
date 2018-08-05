@@ -1,0 +1,28 @@
+{
+    "pins": [{
+        "aceInhibitors": [{
+            "name": "LG",
+            "level": "1",
+            "image": "a",
+            "aria-label": "The Test"
+        }],
+        "antianginal": [{
+            "name": "UG",
+            "level": "2",
+            "image": "b",
+            "aria-label": "The Test2"
+        }],
+        "anticoagulants": [{
+            "name": "Level 3",
+            "level": "3",
+            "image": "c",
+            "aria-label": "The Test3"
+        }],
+        "betaBlocker": [{
+            "name": "Level 4",
+            "level": "4",
+            "image": "d",
+            "aria-label": "The Test4"
+        }]
+    }]
+}

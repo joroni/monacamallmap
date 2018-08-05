@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var items = [];
 
-    $.getJSON('api/pins.json', function(json) {
+    $.getJSON('api/pinsL1.json', function(json) {
         $.each(json.pins, function(index, orders) {
             $.each(this, function() {
                 $.each(this, function() {
